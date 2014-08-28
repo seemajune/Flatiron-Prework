@@ -6,7 +6,7 @@
 # Chapter 2:  Letters                       page 72
 # Chapter 3:  Variables                    page 118
 
-lineWidth = 30
+lineWidth = 40
 
 chapter1 = "Chapter 1:"
 	title1 = "Numbers"
@@ -20,14 +20,8 @@ chapter3 =  "Chapter 3:"
 	title3 = "Variables"
 	index3 = "page 188"
 
-puts chapter1.ljust lineWidth
-puts title1.center (lineWidth/2)
-puts index1.rjust lineWidth
+puts chapter1.ljust lineWidth + title1.center (lineWidth/2) + index1.rjust lineWidth
 
-puts chapter2.ljust lineWidth
-puts title2.center (lineWidth/2)
-puts index2.rjust lineWidth
+puts chapter2.ljust lineWidth + title2.center (lineWidth/2) + index2.rjust lineWidth
 
-puts chapter3.ljust lineWidth
-puts title3.center (lineWidth/2)
-puts index3.rjust lineWidth
+puts chapter3.ljust lineWidth + title3.center (lineWidth/2) + index3.rjust lineWidth
