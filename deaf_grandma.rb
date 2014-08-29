@@ -13,24 +13,58 @@
 # 'BYE'with an Enter is not the same as 'BYE' without one!
 # Hint 2: Try to think about what parts of your 
 # program should happen over and over again. All of those should be in your while loop.
-def random_int(min, max)
+
+# def random_int(min, max)
+#     rand(max - min) + min
+# end
+
+# def grandma_can_hear
+# 	puts "NO, NOT SINCE  #{random_int(1930,1950)}"
+# end
+
+# talk = " "
+
+# 	while  talk.upcase != "BYE"
+# 		puts talk
+# 		talk = gets.chomp
+
+# 	if talk == talk.upcase
+# 		puts grandma_can_hear
+
+# 	elsif talk == talk.downcase
+# 		puts "HUH?!  SPEAK UP, SONNY!"
+# 	end
+# end
+
+# Extend your Deaf Grandma program: What if grandma 
+# doesn't want you to leave? When you shout BYE, she could pretend 
+# not to hear you. Change your previous program so that you have to 
+# shout BYE three times in a row. 
+# Make sure to test your program: 
+# if you shout BYE three times, but not in a row, 
+# 	you should still be talking to grandma.
+#going to use a Proc here too (-seema):
+
+
+ def random_int(min, max)
     rand(max - min) + min
 end
 
-def grandma_can_hear
-	puts "NO, NOT SINCE  #{random_int(1930,1950)}"
-end
+GrandmaCanHear = Proc.new {puts "NO, NOT SINCE  #{random_int(1930,1950)}"}
+
 
 talk = " "
 
-	while  talk.upcase != "BYE"
-		puts talk
-		talk = gets.chomp
+ 	while  talk.upcase != "BYE"
+	puts talk
+	talk = gets.chomp
 
 	if talk == talk.upcase
-		puts grandma_can_hear
+	puts GrandmaCanHear 
 
 	elsif talk == talk.downcase
-		puts "HUH?!  SPEAK UP, SONNY!"
+ 		puts "HUH?!  SPEAK UP, SONNY!"
 	end
-end
+ end
+
+
