@@ -44,6 +44,8 @@
 # if you shout BYE three times, but not in a row, 
 # 	you should still be talking to grandma.
 
+
+
 def random_int(min, max)
     rand(max - min) + min
 end
@@ -52,20 +54,30 @@ def grandma_can_hear
 	puts "NO, NOT SINCE  #{random_int(1930,1950)}"
 end
 
+
 talk = " "
 
-	while talk != "BYE"
+
+	while talk == talk.upcase && talk != "BYE"
 		puts talk
 		talk = gets.chomp
-
-	if talk == talk.upcase
 		puts grandma_can_hear
 
-	elsif talk == talk.downcase
+	if talk == talk.downcase 
 		puts "HUH?!  SPEAK UP, SONNY!"
+
+	elsif talk  == "BYE"
+		puts "HUH?!  SPEAK UP, SONNY!"
+		talk2 = gets.chomp
+		puts talk2
+			if talk2 == "BYE"
+			puts "HUH?!  SPEAK UP, SONNY!"
+			talk3 = gets.chomp
+			puts talk3
+				if talk3 == "BYE"
+				exit
+				end
+			end
 	end
 end
-
-
-
 
