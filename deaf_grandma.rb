@@ -43,28 +43,29 @@
 # Make sure to test your program: 
 # if you shout BYE three times, but not in a row, 
 # 	you should still be talking to grandma.
-#going to use a Proc here too (-seema):
 
-
- def random_int(min, max)
+def random_int(min, max)
     rand(max - min) + min
 end
 
-GrandmaCanHear = Proc.new {puts "NO, NOT SINCE  #{random_int(1930,1950)}"}
-
+def grandma_can_hear
+	puts "NO, NOT SINCE  #{random_int(1930,1950)}"
+end
 
 talk = " "
 
- 	while  talk.upcase != "BYE"
-	puts talk
-	talk = gets.chomp
+	while talk != "BYE"
+		puts talk
+		talk = gets.chomp
 
 	if talk == talk.upcase
-	puts GrandmaCanHear 
+		puts grandma_can_hear
 
 	elsif talk == talk.downcase
- 		puts "HUH?!  SPEAK UP, SONNY!"
+		puts "HUH?!  SPEAK UP, SONNY!"
 	end
- end
+end
+
+
 
 
