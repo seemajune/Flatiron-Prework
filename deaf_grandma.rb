@@ -58,13 +58,16 @@ end
 talk = " "
 
 
-	while talk == talk.upcase && talk != "BYE"
+	while talk != "BYE"
 		puts talk
 		talk = gets.chomp
+
+	if talk == talk.upcase && talk != "BYE"
 		puts grandma_can_hear
 
-	if talk == talk.downcase 
+	elsif talk == talk.downcase
 		puts "HUH?!  SPEAK UP, SONNY!"
+	
 
 	elsif talk  == "BYE"
 		puts "HUH?!  SPEAK UP, SONNY!"
