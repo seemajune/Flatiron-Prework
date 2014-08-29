@@ -12,7 +12,8 @@
 
 def leapyears(startyear, endyear)
 	years = Array.new
-	startyear.upto endyear = years[]
+	# years {puts startyear.upto endyear}
+	years { |x| puts startyear + =1..endyear}
 	years.select { year % 4 == 0 && year % 400 == 0 }
 	puts years
 end
