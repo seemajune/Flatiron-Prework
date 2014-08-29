@@ -10,23 +10,22 @@
 # has having July in the middle of the winter,
 # which is what would eventually happen.)
 
-def leapyears(startyear, endyear)
-	years = Array.new
-	# years {puts startyear.upto endyear}
-	years { |x| puts startyear + =1..endyear}
-	years.select { year % 4 == 0 && year % 400 == 0 }
-	puts years
-end
-
 
 
 puts 'Give me a starting year'
+a = gets.chomp.to_i
 
-startyear = gets.chomp
-startyear.to_i
 
 puts 'Give me an end year'
-endyear = gets.chomp
-endyear.to_i
+b = gets.chomp.to_i
 
-puts leapyears(startyear, endyear)
+c = (b-a)
+
+
+for i in 0..c
+	d = a+i
+	if ((d%4 == 0) && (d%100 != 0)) || (d%400 == 0) 
+		puts d
+	end
+end
+
