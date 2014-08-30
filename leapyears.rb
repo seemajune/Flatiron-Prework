@@ -10,7 +10,6 @@
 # has having July in the middle of the winter,
 # which is what would eventually happen.)
 
-<<<<<<< HEAD
 
 
 puts 'Give me a starting year'
@@ -29,6 +28,3 @@ for i in 0..c
 		puts d
 	end
 end
-
-=======
->>>>>>> a394a6a4050c56dfb1254e5508c25ccee86d58a5
