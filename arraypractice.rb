@@ -29,29 +29,29 @@ When you are all out of words, press ENTER on an empty line: "
 
 words_storage = Array.new
 
-	 words = gets
+	 words = gets.chomp
 	 words_storage.push words
 	until words == ""
 		words = gets.chomp
 		words_storage.push words
 		
-		words_storage.each do |word| word.to_s.capitalize! end
+		# words_storage.each do |word| word.to_s.capitalize! end
  	end
 		
-  puts words_storage
+ #  	words_storage.each do |firstword, secondword| 
+	# 	if firstword.to_s > secondword.to_s
+ # 			words_storage[0] = secondword
+	# 	end
+	# end
 
-  	words_storage.each do |firstword, secondword| 
-		if firstword.to_s > secondword.to_s
- 		print "hello"
-		end
-	end
-		 puts words_storage
+		  puts words_storage
 
 # words = gets.chomp
 # 	until words == ""
 # 		words_storage.push words
 		
-# 		# words_storage.pop
+# # 		# words_storage.pop
+#   words_storage.length = l
 	
 # 		words_storage.each do |word| word.to_s.capitalize! 
 # 		end
