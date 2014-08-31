@@ -24,16 +24,16 @@ def englishNumber number
   teenagers = ['eleven',  'twelve',    'thirteen', 'fourteen', 'fifteen',
                'sixteen', 'seventeen', 'eighteen', 'nineteen']
   
-  
 
   left  = number
-  write = left/1000        #  How many hundreds left to write out?
-  left  = left - write*1000  #  Subtract off those hundreds.
+  write = left/1000        #  How many thousands left to write out?
+  left  = left - write*1000  #  Subtract off those thousands.
   
   if write > 0
     #  Now here's a really sly trick:
     thousands  = englishNumber write
-    numString = "#{numString}" + "#{thousands}" + " thousand"
+    numString = "#{numString}" +  "#{thousands}" + " thousand" 
+    
     #  That's called "recursion".  So what did I just do?
     #  I told this method to call itself, but with "write" instead of
     #  "number".  Remember that "write" is (at the moment) the number of
@@ -50,10 +50,7 @@ def englishNumber number
       numString = "#{numString}" + " "
     end
   end
-  #  "left" is how much of the number we still have left to write out.
-  #  "write" is the part we are writing out right now.
 
-  #  write and left... get it?  :)
 
   write = left/100         #  How many hundreds left to write out?
   left  = left - write*100  #  Subtract off those hundreds.
