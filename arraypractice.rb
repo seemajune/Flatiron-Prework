@@ -43,24 +43,28 @@ words_storage = Array.new
 
 		new_word_storage = Array.new
 
-		new_word_storage.push words_storage
-			puts "New word storage: " +"#{new_word_storage}"
+if words_storage[0].to_s > words_storage[1].to_s
+	 		new_word_storage.push words_storage[0]
+		
+			# puts "New word storage: " +"#{new_word_storage}"
 
-l = new_word_storage.length
-
-	 	new_word_storage.each do |firstword, secondword|  
-
-	 		if firstword.to_s > secondword.to_s
 	 			
-	 				puts secondword.to_s
-	 				puts firstword.to_s
-	 		if secondword.to_s >
-	 		end
-	 
-	 	puts "#{new_word_storage}"
+	 	
+	 		
+	 	
+	 	 end
+	 		puts new_word_storage
+
+	
 	
 
 	
+# l = new_word_storage.length
+
+	 	# new_word_storage.each do |firstword, secondword| puts secondword <=> firstword 
+	 	 
+	 	
+	 	 	# if firstword > secondword
 
 	 # end
 				# if firstword.to_s > secondword.to_s
