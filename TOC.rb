@@ -32,16 +32,20 @@
 # Then print out the information from the array in a beautifully 
 # formatted Table of Contents.:
 
-table_of_contents =	[["Chapter 1", "Chapter 2", "Chapter 3"], 
-		["Numbers", "Letters", "Variables"], 
-		["page 1", "page 72", "page 188" ]]
+table_of_contents =	[["Chapter 1", "Numbers", "page 1"], 
+["Chapter 2", "Letters", "page 72"], 
+["Chapter 3", "Variables", "page 188" ]]
 
-lineWidth = 40
+lineWidth = 20
+
+table_of_contents[0].each do |x| print x.ljust(lineWidth)
+end
+
+table_of_contents[1].each do |x| print x.ljust(lineWidth)
+end
+
+table_of_contents[2].each do |x| print x.ljust(lineWidth)
+end
 
 
 
-puts chapter1.ljust(lineWidth) + title1.center(lineWidth/2) + index1.rjust(lineWidth)
-
-puts chapter2.ljust(lineWidth)+ title2.center(lineWidth/2) + index2.rjust(lineWidth)
-
-puts chapter3.ljust(lineWidth) + title3.center(lineWidth/2) + index3.rjust(lineWidth)
