@@ -43,17 +43,12 @@ words_storage = Array.new
 
 		new_word_storage = Array.new
 
-if words_storage[0].to_s > words_storage[1].to_s
-	 		new_word_storage.push words_storage[0]
-		
-			# puts "New word storage: " +"#{new_word_storage}"
-
-	 			
-	 	
-	 		
-	 	
-	 	 end
-	 		puts new_word_storage
+words_storage.each do |word1, word2| puts word1.to_s  
+while word1.to_s > word2.to_s
+	 		new_word_storage.push words_storage[word1]
+end
+end	
+puts new_word_storage
 
 	
 	
