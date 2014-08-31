@@ -34,17 +34,45 @@ words_storage = Array.new
 	until words == ""
 		words = gets.chomp
 		words_storage.push words
-		
-		# words_storage.each do |word| word.to_s.capitalize! end
- 	end
-		
- #  	words_storage.each do |firstword, secondword| 
-	# 	if firstword.to_s > secondword.to_s
- # 			words_storage[0] = secondword
-	# 	end
-	# end
 
-		  puts words_storage
+	end
+
+	words_storage.pop
+		 words_storage.each do |word| word.to_s.capitalize! end
+			puts "Old word storage: " + "#{words_storage}"
+
+		new_word_storage = Array.new
+
+		new_word_storage.push words_storage
+			puts "New word storage: " +"#{new_word_storage}"
+
+l = new_word_storage.length
+
+	 	new_word_storage.each do |firstword, secondword|  
+
+	 		if firstword.to_s > secondword.to_s
+	 			
+	 				puts secondword.to_s
+	 				puts firstword.to_s
+	 		if secondword.to_s >
+	 		end
+	 
+	 	puts "#{new_word_storage}"
+	
+
+	
+
+	 # end
+				# if firstword.to_s > secondword.to_s
+ 
+		
+#  words_storage.each do |firstword, secondword| 
+# 	if firstword.to_s > secondword.to_s
+# 	words_storage[0] = secondword
+# 	end
+# end
+
+		  # puts words_storage
 
 # words = gets.chomp
 # 	until words == ""
