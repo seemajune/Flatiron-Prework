@@ -7,12 +7,19 @@ def englishNumber number
     return 'Please enter a number 10,000 or lesser.'
   end
   
-  numString = ''  #  This is the string we will return.
-  
-  #  "left" is how much of the number we still have left to write out.
-  #  "write" is the part we are writing out right now.
-  #  write and left... get it?  :)
+  numString = ''  
 
+  onesPlace = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
+  tensPlace = ["ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+
+  teens = ["eleven", "twelve", "thirteen", "fourtneen", "fifteen", "sixteen", "seventeen", "eighteen", 
+    "nineteen"]
+
+  hundredsPlace = ["one hundred", "two hundred", "three hundred", "four hundred", "five hundred", 
+    "six hundred", "seven hundred", "eight hundred", "nine hundred"]
+
+  
   left  = number
   write = left/1000         #  How many thousands left to write out?
   left  = left - write*1000  #  Subtract off those thousands
@@ -23,150 +30,58 @@ def englishNumber number
     thousands = englishNumber write
     numString = "#{thousands}" + " thousand " 
   
-  if left == 0
-     thousands = englishNumber write
-    numString = "#{thousands}" + " thousand " 
+  if left > 0
+    numString = numString + " "
  end
 end
-
-
 
     write = left/100          #  How many hundreds left to write out?
     left  = left - write*100  #  Subtract off those hundreds.
  
- if write > 0
+if write > 0
 
+  hundreds = englishNumber write #new 
+  numString = numString + "#{hundredsPlace[write -1]}"
 
-  if write == 1  
-
-    numString = numString  + "one hundred "  
-
-  elsif   write == 2  
-
-    numString = numString  + "two hundred "  
-
-  elsif   write == 3  
-
-    numString = numString  + "three hundred "  
-
-  elsif   write == 4 
-
-    numString = numString  + "four hundred "  
-  elsif   write == 5 
-
-    numString = numString  + "five hundred "
-  
-  elsif   write == 6
-
-  numString = numString  + "six hundred "
-  
-  elsif   write == 7 
-
-    numString = numString  + "seven hundred "
-  
-  elsif   write == 8
-
-    numString = numString  + "eight hundred "
-
-  elsif   write == 9
-
-    numString = numString  + "nine hundred "
-end
+    if left > 0
+    numString = numString + " "
+    end
 end
 
-        # numString = numString + "#{hundreds}" + "  hundred" + " "
   write = left/10        #  How many tens left to write out?
   left  = left - write*10  #  Subtract off those tens.
   
   if write > 0
-    if write == 1  #  Uh-oh...
-      #  Since we can't write "tenty-two" instead of "twelve",
-      #  we have to make a special exception for these.
-      if    left == 0
-        numString = numString + 'ten'
-      elsif left == 1
-        numString = numString + 'eleven'
-      elsif left == 2
-        numString = numString + 'twelve'
-      elsif left == 3
-        numString = numString + 'thirteen'
-      elsif left == 4
-        numString = numString + 'fourteen'
-      elsif left == 5
-        numString = numString + 'fifteen'
-      elsif left == 6
-        numString = numString + 'sixteen'
-      elsif left == 7
-        numString = numString + 'seventeen'
-      elsif left == 8
-        numString = numString + 'eighteen'
-      elsif left == 9
-        numString = numString + 'nineteen'
-      end
-      #  Since we took care of the digit in the ones place already,
-      #  we have nothing left to write.
-      left = 0
-    elsif write == 2
-      numString = numString + 'twenty'
-    elsif write == 3
-      numString = numString + 'thirty'
-    elsif write == 4
-      numString = numString + 'forty'
-    elsif write == 5
-      numString = numString + 'fifty'
-    elsif write == 6
-      numString = numString + 'sixty'
-    elsif write == 7
-      numString = numString + 'seventy'
-    elsif write == 8
-      numString = numString + 'eighty'
-    elsif write == 9
-      numString = numString + 'ninety'
-    end
+
+    if ((write == 1) and (left > 0))  
+      numString = numString + "#{teens[left -1]}"
     
-    if left > 0
-      numString = numString + '-'
+    left = 0
+
+    else 
+      numString = numString + "#{tensPlace[write -1]}"
+    end
+
+    if left > 0 
+       numString = numString + '-'
+    
     end
   end
-  
+      
   write = left  #  How many ones left to write out?
   left  = 0     #  Subtract off those ones.
   
   if write > 0
-    if    write == 1
-      numString = numString + 'one'
-    elsif write == 2
-      numString = numString + 'two'
-    elsif write == 3
-      numString = numString + 'three'
-    elsif write == 4
-      numString = numString + 'four'
-    elsif write == 5
-      numString = numString + 'five'
-    elsif write == 6
-      numString = numString + 'six'
-    elsif write == 7
-      numString = numString + 'seven'
-    elsif write == 8
-      numString = numString + 'eight'
-    elsif write == 9
-      numString = numString + 'nine'
-    end
-  end
+    numString = numString + "#{onesPlace[write - 1]}"
   
-  if numString == ''
-    #  The only way "numString" could be empty is if
-    #  "number" is 0.
-    return 'zero'
-  end
-  
-  #  If we got this far, then we had a number somewhere
-  #  in between 0 and 100, so we need to return "numString".
-  print "#{numString}" + "  "
+end
+
+
+  numString
 
 end
 
 puts "please enter a number between 0 and 10,000"
-choice = gets.chomp
+choice = gets.chomp.to_i
 
-englishNumber choice.to_i
+puts englishNumber(choice)
