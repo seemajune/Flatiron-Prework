@@ -14,31 +14,68 @@ def englishNumber number
   #  write and left... get it?  :)
 
   left  = number
-  write = left/1000         #  How many hundreds left to write out?
-  left  = left - write*1000  #  Subtract off those hundreds.
+  write = left/1000         #  How many thousands left to write out?
+  left  = left - write*1000  #  Subtract off those thousands
   
-  
+
   if write > 0 
     
     thousands = englishNumber write
-        numString = numString + "#{thousands}" + "  thousand" 
-    # numString = numString + "#{thousands}" + "  thousand" + " "
-# puts numString
+    numString = "#{thousands}" + " thousand " 
   
-
-  if left > 0
-     write = left/100          #  How many hundreds left to write out?
-    left  = left - write*100  #  Subtract off those hundreds.
-    puts numString
-    hundreds = englishNumber write
-    puts hundreds
-    numString = "#{thousands}"  + "#{hundreds}" +  " hundred"  + " "
-        # numString = numString + "#{hundreds}" + "  hundred" + " "
-
-  end 
+  if left == 0
+     thousands = englishNumber write
+    numString = "#{thousands}" + " thousand " 
+ end
 end
 
-  write = left/10          #  How many tens left to write out?
+
+
+    write = left/100          #  How many hundreds left to write out?
+    left  = left - write*100  #  Subtract off those hundreds.
+ 
+ if write > 0
+
+
+  if write == 1  
+
+    numString = numString  + "one hundred "  
+
+  elsif   write == 2  
+
+    numString = numString  + "two hundred "  
+
+  elsif   write == 3  
+
+    numString = numString  + "three hundred "  
+
+  elsif   write == 4 
+
+    numString = numString  + "four hundred "  
+  elsif   write == 5 
+
+    numString = numString  + "five hundred "
+  
+  elsif   write == 6
+
+  numString = numString  + "six hundred "
+  
+  elsif   write == 7 
+
+    numString = numString  + "seven hundred "
+  
+  elsif   write == 8
+
+    numString = numString  + "eight hundred "
+
+  elsif   write == 9
+
+    numString = numString  + "nine hundred "
+end
+end
+
+        # numString = numString + "#{hundreds}" + "  hundred" + " "
+  write = left/10        #  How many tens left to write out?
   left  = left - write*10  #  Subtract off those tens.
   
   if write > 0
