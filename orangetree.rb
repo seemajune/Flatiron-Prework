@@ -24,9 +24,12 @@ class OrangeTree
 		oneYearPasses
 	end
 
+	def height 
+		puts @height
+	end
+
 	def countTheOranges
 		puts puts "You have a total of  #{@orangeCount} oranges on your tree"
-		oneYearPasses
 	end
 
 	def pickAnOrange
@@ -43,33 +46,36 @@ class OrangeTree
 	
 	def oneYearPasses
 		
-		if  @age <= 2
-			@height = @height + 10
+		
+		if @age < 2
 			@orangeCount = 0
-			@age = @age + 1
-
-			puts "Your tree is #{@age} years old, has a height of #{@height}
-			and has produced #{@orangeCount} oranges to date"
-
-		elsif @age >= 3 && @age < 5
 			@height = @height + 10
-			@orangeCount = @orangeCount + 1
+			@age = @age + 1
+
+			puts "Your tree is #{@age} years old, has a height of #{@height}
+			and has produced #{@orangeCount} oranges to date"
+	
+
+		elsif @age == 3 
+			@height = @height + 30
+			@orangeCount = @orangeCount + 1	
 			@age = @age + 1
 
 			puts "Your tree is #{@age} years old, has a height of #{@height}
 			and has produced #{@orangeCount} oranges to date"
 
 
-		elsif  @age >= 5 && @age < 20
-			@height = @height + 30
+		elsif  @age == 4 
+			@height = @height + 40
 			@orangeCount = @orangeCount + 2
 			@age = @age + 1
 			
 			puts "Your tree is #{@age} years old, has a height of #{@height}
 			and has produced #{@orangeCount} oranges to date"
+		
 
-		elsif  @age >= 20 && @age < 50
-			@height = @height + 40
+		else  
+			@height = @height + 50
 			@orangeCount = @orangeCount + 3
 			@age = @age + 1
 				puts "Your tree is #{@age} years old, has a height of #{@height}
@@ -78,13 +84,13 @@ class OrangeTree
 		end
 
 		if dead?
-			puts "your tree died"
+			puts "your tree died at age #{@age}"
 			exit
 		end
 	end
 
 	def dead?
-	  @age >= 50
+	  @age > 5
 	end
 end
 
@@ -92,81 +98,12 @@ end
 myTree = OrangeTree.new
 myTree.water
 myTree.pickAnOrange
-myTree.countTheOranges 
-
-myTree.water
-myTree.pickAnOrange
-myTree.countTheOranges
-myTree.pickAnOrange
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.pickAnOrange
-myTree.pickAnOrange
-
-myTree.pickAnOrange
-
-myTree.pickAnOrange
-
-
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.pickAnOrange
-myTree.pickAnOrange
-
-myTree.pickAnOrange
-
-myTree.pickAnOrange
-
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.pickAnOrange
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.pickAnOrange
-myTree.pickAnOrange
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-myTree.water
-
 myTree.water
 myTree.countTheOranges 
-# scratch pad:
-# initialize with 0 height:
-# @height = 0 ? 
+myTree.water
+myTree.water
+myTree.countTheOranges 
+myTree.water
+myTree.pickAnOrange
+myTree.countTheOranges 
+myTree.water
