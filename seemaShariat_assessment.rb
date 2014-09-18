@@ -38,27 +38,27 @@ puts instructor[:name]
 # d. Return the key name for the value 27.
 
 instructor.each do |k, v| 
-	if v == 27
-	  puts k 
-	end
+  if v == 27
+    puts k 
+  end
 end
 puts
 
 # 3. Nested Structures
 puts "This is section 3"
  school = {
-	:name => 'Happy Funtime School',
-	:location => 'NYC',
-	:instructors => [
-    	{:name=>'Blake', :subject=>'being awesome' },
-	    {:name=>'Steven', :subject=>'being better than blake'},
-		{:name=>'Jeff', :subject=>'karaoke'}
+  :name => 'Happy Funtime School',
+  :location => 'NYC',
+  :instructors => [
+      {:name=>'Blake', :subject=>'being awesome' },
+      {:name=>'Steven', :subject=>'being better than blake'},
+    {:name=>'Jeff', :subject=>'karaoke'}
     ],
-	:students => [
-	   {:name => 'Marissa', :grade => 'B'},
-	   {:name=>'Billy', :grade => 'F'},
-	   {:name => 'Frank', :grade => 'A'},
-	   {:name => 'Sophie', :grade => 'C'}
+  :students => [
+     {:name => 'Marissa', :grade => 'B'},
+     {:name=>'Billy', :grade => 'F'},
+     {:name => 'Frank', :grade => 'A'},
+     {:name => 'Sophie', :grade => 'C'}
       ]
  }
 
@@ -73,13 +73,13 @@ school[:students].push(:name=>"Andrea", :grade=>"A")
 # c. Remove 'Billy' from the students' array.
 
 school.each do |key, value|
-	if key == :students
-	  value.each do |s|
-	    if s[:name] == "Billy"
-	      value.delete(s)
+  if key == :students
+    value.each do |s|
+      if s[:name] == "Billy"
+        value.delete(s)
       end 
-	  end 
-	end 
+    end 
+  end 
 end
 
 # d. Add a key to every student in the students array called 'semester' and assign it the value 'Summer'.
@@ -348,6 +348,7 @@ puts "This is Section 5"
 
 #   end
 # Student.new.say_hello
+
 
 
 
