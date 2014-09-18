@@ -38,27 +38,27 @@ puts instructor[:name]
 # d. Return the key name for the value 27.
 
 instructor.each do |k, v| 
-  if v == 27
-    puts k 
-  end
+	if v == 27
+	  puts k 
+	end
 end
 puts
 
 # 3. Nested Structures
 puts "This is section 3"
  school = {
-  :name => 'Happy Funtime School',
-  :location => 'NYC',
-  :instructors => [
-      {:name=>'Blake', :subject=>'being awesome' },
-      {:name=>'Steven', :subject=>'being better than blake'},
-    {:name=>'Jeff', :subject=>'karaoke'}
+	:name => 'Happy Funtime School',
+	:location => 'NYC',
+	:instructors => [
+    	{:name=>'Blake', :subject=>'being awesome' },
+	    {:name=>'Steven', :subject=>'being better than blake'},
+		{:name=>'Jeff', :subject=>'karaoke'}
     ],
-  :students => [
-     {:name => 'Marissa', :grade => 'B'},
-     {:name=>'Billy', :grade => 'F'},
-     {:name => 'Frank', :grade => 'A'},
-     {:name => 'Sophie', :grade => 'C'}
+	:students => [
+	   {:name => 'Marissa', :grade => 'B'},
+	   {:name=>'Billy', :grade => 'F'},
+	   {:name => 'Frank', :grade => 'A'},
+	   {:name => 'Sophie', :grade => 'C'}
       ]
  }
 
@@ -73,13 +73,13 @@ school[:students].push(:name=>"Andrea", :grade=>"A")
 # c. Remove 'Billy' from the students' array.
 
 school.each do |key, value|
-  if key == :students
-    value.each do |s|
-      if s[:name] == "Billy"
-        value.delete(s)
+	if key == :students
+	  value.each do |s|
+	    if s[:name] == "Billy"
+	      value.delete(s)
       end 
-    end 
-  end 
+	  end 
+	end 
 end
 
 # d. Add a key to every student in the students array called 'semester' and assign it the value 'Summer'.
@@ -254,23 +254,63 @@ puts "This is Section 5"
   #iii. Initialize each instance variable with the value of the 
   #corresponding parameter.
 
- class School
-  def initialize(name, location, ranking, students, instructors)
-    @name = name
-    @location = location
-    @ranking = ranking
-    @students = students
-    @instructors = instructors
-  end
- end
+ # class School
+ #  def initialize(name, location, ranking, students, instructors)
+ #    @name = name
+ #    @location = location
+ #    @ranking = ranking
+ #    @students = students
+ #    @instructors = instructors
+ #  end
+ # end
 
-# c. Create an attr_accessor for name, location, instructors, and students. Create an attr_reader for ranking.
+# c. Create an attr_accessor for name, location, instructors, and students. 
+#Create an attr_reader for ranking.
 
 # d. Create a method to set ranking, given a ranking value.
 
-# e. Create a method to add a student to the school, given a name, a grade, and a semester.
+# e. Create a method to add a student to the school, given a name, 
+# a grade, and a semester.
 
 # f. Create a method to remove a student from the school, given a name.
+
+class School
+  attr_accessor :name
+  attr_accessor :location
+  attr_accessor :students
+  attr_accessor :instructors
+  attr_reader :ranking
+
+    def initialize(name, location, ranking, students, instructors)
+      @name = name
+      @location = location
+      @students = students
+      @instructors = instructors
+      @ranking = ranking
+    end
+
+    public
+
+    def set_ranking(new_ranking)
+    @ranking = new_ranking.to_i
+    school[:Ranking] = @ranking
+    end
+
+    def new_student(student_name, grade, semester)
+      school[:students].push(:name => student_name, :grade => grade, 
+        :semester => semester)
+    end
+
+    def delete_student(student_name)
+      school.each do |key2, value2|
+        if key2 == :students
+          value2.each do |s|
+            if s[:name] == student_name
+            value2.delete(s)
+            end 
+          end 
+        end
+    end
 
 # g. Create an array constant SCHOOLS that stores all instances of your School class.
 
@@ -279,6 +319,8 @@ puts "This is Section 5"
 
 # 6. Classes
 # a. Create a Student class.
+class Student
+end
 
 # b. Refactor your School instance methods to treat Students as an array of objects instead of an array of hashes.
 
@@ -348,7 +390,6 @@ puts "This is Section 5"
 
 #   end
 # Student.new.say_hello
-
 
 
 
