@@ -194,9 +194,23 @@ get_school_info(school)
     puts "Please entger a valid key, thanks!"
 end
 
-
 # b.   i. Create a method to udpate a instructor's subject 
   # given the instructor and the new subject.   
+def change_subject(school, instructor_name2, new_subject)
+ school[:instructors].each do |instructor|
+      if instructor_name2 == instructor[:name]
+      instructor[:subject].update(new_subject)
+      puts "#{instructor_name2}'s subject has been updated to #{new_subject}"
+      puts school
+    end
+  end
+end
+
+puts "Please enter an instructors name for whom you'd like to update subject"
+instructor_name2 = gets.chomp
+puts "Please enter a new subject for #{instructor_name2}"
+new_subject = gets.chomp
+change_subject(school, instructor_name2, new_subject)   
 
     #ii. Then use it to update Blake's subject to 'being terrible'.
 
