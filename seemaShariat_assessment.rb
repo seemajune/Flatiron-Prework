@@ -119,26 +119,25 @@ end
 
 #i. Write a statement to print out all the values in the school.
 
-# school.each do |key, value|
-#     if value.is_a? String
-#       puts value
+school.each do |key, value|
+    if value.is_a? String
+      puts value
 
-#     elsif key == :instructors
-#       value.each do |instructor|
-#         puts instructor[:name] 
-#         puts instructor[:subject]
-    
+      elsif value.is_a? Array
+        value.each do |x|
+          puts x[:name]
+            
+            if x.include?(:subject)
+              puts x[:subject] 
 
-#      elsif key == :students 
-#       value.each do |student|
-#         puts student[:name]
-#         puts student[:grade]
-#         puts student[:semester]
-      
-#       end
-#       end 
-#     end
-# end 
+            elsif x.include?(:grade) && x.include?(:semester)
+              puts x[:grade] 
+              puts x[:semester]
+            end 
+      end 
+    end
+end 
+
 
 # 4. Methods
 # Note: You will need to pass the school variable to each of these methods to include it in scope.
