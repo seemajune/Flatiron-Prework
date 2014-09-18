@@ -119,31 +119,50 @@ end
 
 #i. Write a statement to print out all the values in the school.
 
-school.each do |key, value|
-    if value.is_a? String
-      puts value
+# school.each do |key, value|
+#     if value.is_a? String
+#       puts value
 
-      elsif value.is_a? Array
-        value.each do |x|
-          puts x[:name]
-            
-            if x.include?(:subject)
-              puts x[:subject] 
+#     elsif key == :instructors
+#       value.each do |instructor|
+#         puts instructor[:name] 
+#         puts instructor[:subject]
+    
 
-            elsif x.include?(:grade) && x.include?(:semester)
-              puts x[:grade] 
-              puts x[:semester]
-            end 
-      end 
-    end
-end 
-
+#      elsif key == :students 
+#       value.each do |student|
+#         puts student[:name]
+#         puts student[:grade]
+#         puts student[:semester]
+      
+#       end
+#       end 
+#     end
+# end 
 
 # 4. Methods
 # Note: You will need to pass the school variable to each of these methods to include it in scope.
 
-# a.   i. Create a method to return the grade of a student, given that student's name   ii. Then use it to refactor your work in 3.i.
 
+# a.   i. Create a method to return the grade of a student,  given that student's name  
+#ii. Then use it to refactor your work in 3.i.
+
+def get_grade(school, name)
+  school[:students].each do |student|
+    if name == student[:name] 
+      puts student[:grade]
+    end
+  end
+end
+
+puts "What is the name of the student whose grade you'd like to see?"
+name = gets.chomp
+  puts name
+  get_grade(school, name)
+
+	#ii. Then use it to refactor your work in 3.i.
+	
+	
 # b.   i. Create a method to udpate a instructor's subject given the instructor and the new subject.   ii. Then use it to update Blake's subject to 'being terrible'.
 
 # c.   i. Create a method to add a new student to the schools student array.   ii. Then use it to add yourself to the school students array.
