@@ -1,9 +1,11 @@
 #1. Arrays
+  
+  puts "This is Section 1"
   array = ['Blake','Steven','Jeff']
 
 # a. Add a element to an array
 
-  array[3] = 'Seema'
+  array.push('Andrea')
 
 # b. Write a statement to print out all the elements of the array.
 
@@ -18,7 +20,8 @@
   puts array.index("Jeff")
 
 #2. Hashes
- instructor = { :name=> 'Steven', :age=> 27 }
+puts "This is Section 2"
+instructor = { :name=> 'Steven', :age=> 27 }
 
 # a. Add a new key for location and give it the value 'NYC'.
  
@@ -39,8 +42,10 @@ instructor.each do |k, v|
 	  puts k 
 	end
 end
+puts
 
 # 3. Nested Structures
+puts "This is section 3"
  school = {
 	:name => 'Happy Funtime School',
 	:location => 'NYC',
@@ -63,7 +68,7 @@ school[:founded_in] = 2013
 
 # b. Add a student to the school's students' array.
 # school[:students]  {:name => 'Seema', :grade => 'A'}
-school[:students][4] = {:name=>"Seema", :grade=>"A"}
+school[:students].push(:name=>"Andrea", :grade=>"A")
 
 # c. Remove 'Billy' from the students' array.
 
@@ -137,8 +142,10 @@ end
 #       end 
 #     end
 # end 
-
+puts
+puts
 # 4. Methods
+puts "This is section 4"
 # Note: You will need to pass the school variable to each of these methods 
 # to include it in scope.
 
@@ -157,10 +164,6 @@ name = gets.chomp
   get_grade(school, name)
 
 #ii. Then use it to refactor your work in 3.i.
-puts
-puts
-puts
-puts
 def get_subject(school, instructor_name)
   school[:instructors].each do |instructor|
       if instructor_name == instructor[:name]
@@ -199,9 +202,8 @@ end
 def change_subject(school, instructor_name2, new_subject)
  school[:instructors].each do |instructor|
       if instructor_name2 == instructor[:name]
-      instructor[:subject].update(new_subject)
+      instructor[:subject] = new_subject
       puts "#{instructor_name2}'s subject has been updated to #{new_subject}"
-      puts school
     end
   end
 end
@@ -210,18 +212,57 @@ puts "Please enter an instructors name for whom you'd like to update subject"
 instructor_name2 = gets.chomp
 puts "Please enter a new subject for #{instructor_name2}"
 new_subject = gets.chomp
-change_subject(school, instructor_name2, new_subject)   
+change_subject(school, instructor_name2, new_subject)
 
     #ii. Then use it to update Blake's subject to 'being terrible'.
+puts change_subject(school, 'Blake', 'being terrible')
 
-# c.   i. Create a method to add a new student to the schools student array.   ii. Then use it to add yourself to the school students array.
+# c.   i. Create a method to add a new student to the schools student array.  
 
-# d.   i. Create a method that adds a new key at the top level of the school hash, given a key and a value.   ii. Then use it to add a 'Ranking' key with the value 1.
+def add_student(school, new_student_name, new_student_grade, new_student_semester)
+   school[:students].push(:name => new_student_name, 
+    :grade => new_student_grade, :semester => new_student_semester)
+   puts school[:students]
+end
+
+  # ii. Then use it to add yourself to the school students array.
+
+add_student(school,'Seema','A','Fall')
+
+# d.   i. Create a method that adds a new key at the top level of the school hash, 
+# given a key and a value.   
+
+def new_top_level(school, key, value)
+  school[key.to_sym] = value
+end
+
+#ii. Then use it to add a 'Ranking' key with the value 1.
+new_top_level(school, 'Ranking', 1)
+puts school
+puts
 
 # 5. Object Orientation
+puts "This is Section 5"
 # a. Create a bare bones class definition for a School class.
 
-# b. Define an initialize method for the School class.   i. Give your School class the instance variables: name, location, ranking, students, instructors.     NOTE: These variables should be of the same type as they are in the hash above.   ii. Rewrite your initialize method definition to take a parameter for each instance variable.   iii. Initialize each instance variable with the value of the corresponding parameter.
+# b. Define an initialize method for the School class.   
+  #i. Give your School class the instance variables: name, 
+  #location, ranking, students, instructors.    
+  # NOTE: These variables should be of the same type as they are in the hash above.  
+  # ii. Rewrite your initialize method definition to take a parameter for each 
+  #instance variable.   
+  #iii. Initialize each instance variable with the value of the 
+  #corresponding parameter.
+
+ class School
+  def initialize(name, location, ranking, students, instructors)
+    @name = name
+    @location = location
+    @ranking = ranking
+    @students = students
+    @instructors = instructors
+  end
+ end
 
 # c. Create an attr_accessor for name, location, instructors, and students. Create an attr_reader for ranking.
 
@@ -234,6 +275,7 @@ change_subject(school, instructor_name2, new_subject)
 # g. Create an array constant SCHOOLS that stores all instances of your School class.
 
 # h. Create a class method reset that will empty the SCHOOLS constant.
+
 
 # 6. Classes
 # a. Create a Student class.
@@ -306,6 +348,7 @@ change_subject(school, instructor_name2, new_subject)
 
 #   end
 # Student.new.say_hello
+
 
 
 
