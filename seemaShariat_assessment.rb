@@ -255,7 +255,7 @@ puts "This is Section 5"
   #corresponding parameter.
 
  # class School
- #  def initialize(name, location, ranking, students, instructors)
+ #  def initialize
  #    @name = name
  #    @location = location
  #    @ranking = ranking
@@ -275,14 +275,15 @@ puts "This is Section 5"
 # f. Create a method to remove a student from the school, given a name.
 
 class School
+
   attr_accessor :name
   attr_accessor :location
   attr_accessor :students
   attr_accessor :instructors
   attr_reader :ranking
 
-    def initialize(name, location, ranking, students, instructors)
-      @name = name
+    def initialize
+      @name = school[:name]
       @location = location
       @students = students
       @instructors = instructors
@@ -310,7 +311,9 @@ class School
             end 
           end 
         end
+      end
     end
+end
 
 # g. Create an array constant SCHOOLS that stores all instances of your School class.
 
