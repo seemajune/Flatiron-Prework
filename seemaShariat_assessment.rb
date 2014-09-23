@@ -222,7 +222,6 @@ puts change_subject(school, 'Blake', 'being terrible')
 def add_student(school, new_student_name, new_student_grade, new_student_semester)
    school[:students].push(:name => new_student_name, 
     :grade => new_student_grade, :semester => new_student_semester)
-   puts school[:students]
 end
 
   # ii. Then use it to add yourself to the school students array.
@@ -275,19 +274,21 @@ puts "This is Section 5"
 # f. Create a method to remove a student from the school, given a name.
 
 class School
-
-  attr_accessor :name
-  attr_accessor :location
-  attr_accessor :students
-  attr_accessor :instructors
+  @@SCHOOLS = Array.new
+  attr_accessor :name, :location, :students, :instructors
   attr_reader :ranking
 
-    def initialize
+  def self.all_instances
+    @@SCHOOLS
+  end
+
+    def initialize()
       @name = school[:name]
       @location = location
       @students = students
       @instructors = instructors
       @ranking = ranking
+      @@SCHOOLS << self
     end
 
     public
@@ -317,13 +318,15 @@ end
 
 # g. Create an array constant SCHOOLS that stores all instances of your School class.
 
+SCHOOLS = Array.new
+
 # h. Create a class method reset that will empty the SCHOOLS constant.
 
 
 # 6. Classes
 # a. Create a Student class.
-class Student
-end
+# class Student
+# end
 
 # b. Refactor your School instance methods to treat Students as an array of objects instead of an array of hashes.
 
@@ -394,12 +397,7 @@ end
 #   end
 # Student.new.say_hello
 
-
-
-
-
-
-
+  
 
 
 
